@@ -1,0 +1,50 @@
+<div>
+    <div>
+        <material-fab mini raised
+                      (trigger)="settings()">
+            <material-icon icon="settings"></material-icon>
+        </material-fab>
+
+        <div id="settingsInfo">
+            <material-input label="Goal"
+                            id="goal"
+                            type="text"
+                            autoFocus floatingLabel style="width:80%">
+            </material-input>
+        </div>
+    </div>
+
+    <material-input label="Enter Amount"
+                    id="enteredAmount"
+                    [(ngModel)]="proteinTracker"
+                    (keyup.enter)="add()"
+                    autoFocus floatingLabel style="width:80%">
+    </material-input>
+
+    <material-fab mini raised
+                  (trigger)="add()">
+        <material-icon icon="add"></material-icon>
+    </material-fab>
+
+    <material-fab mini raised
+                  (trigger)="reset()">
+        <material-icon icon="cached"></material-icon>
+    </material-fab>
+</div>
+
+<div>
+    <div id="total">
+        Total:
+    </div>
+    <div id="historyItems">
+
+    </div>
+    <ul>
+        <li *ngFor="let item of items; let i=index">
+            {{item}}
+            <material-fab mini (trigger)="remove(i)">
+                <material-icon icon="delete"></material-icon>
+            </material-fab>
+        </li>
+    </ul>
+</div>
